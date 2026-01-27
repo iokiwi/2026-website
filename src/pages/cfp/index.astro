@@ -10,19 +10,20 @@ import NewsPostCard from "../../components/NewsPostCard.astro";
 import Deadline from "../../components/Deadline.astro";
 import ConnectSubscribeGetInTouchCards from "../../components/ConnectSubscribeGetInTouchCards.astro";
 import Base from "../../layouts/Base.astro";
+import CfpNav from "../../components/cfp/CfpNav.astro";
 
-const SUBMISSION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdgeD8HWGmIgxpKNM9DfVevogm96l9cA4wrVZV-D6fH1mgYEg/viewform?usp=header";
+const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
 ---
 
-<Base title="Specialist Tracks">
+<Base title="Call For Proposals">
   <Header dark={true} />
 
   <section class="bg-charcoal pt-[98px] pb-20 overflow-hidden">
     <div class="container relative">
-      <HeaderStar colour="lime" />
+      <HeaderStar colour="lemon" />
 
       <div class="lg:w-[85%] w-full mx-auto">
-        <HeaderBreadcrumbs colour="lime" />
+        <HeaderBreadcrumbs colour="lemon" />
         <div
           class="flex flex-col lg:flex-row justify-between items-center relative pt-10"
         >
@@ -31,17 +32,17 @@ const SUBMISSION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdgeD8HWGmIgxp
               class="font-serif text-8xl text-[3.625rem] -tracking-[0.022em]"
             >
               <h1 class="text-white">
-                <span class="text-lavender">Specialist</span> Tracks
+                <span class="text-lemon">Speak</span>  at  </br>PyCon AU
               </h1>
             </div>
             <p
               class="hidden lg:block text-stone font-sans font-base tracking-[0.01em] leading-normal lg:w-[454px]"
             >
-              Specialist tracks are one day mini-conferences focsued on specific
-              niches, fields or industries.
+              We’re looking for talks on everything Python, open source, and tech-related. If it would be of interest to someone, anyone, in the Python community, it’s of interest to us!
+
             </p>
             <img
-              src="/images/star-coral.svg"
+              src="/images/star-lemon.svg"
               class="spin absolute -right-10 bottom-0 hidden lg:block"
               alt=""
             />
@@ -58,8 +59,7 @@ const SUBMISSION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdgeD8HWGmIgxp
             <p
               class="lg:hidden block text-stone font-sans font-base tracking-[0.01em] leading-normal lg:w-[454px]"
             >
-              Specialist tracks are one day mini-conferences focsued on specific
-              niches, fields or industries.
+              We’re looking for talks on everything Python, open source, and tech-related. If it would be of interest to someone, anyone, in the Python community, it’s of interest to us!
             </p>
           </div>
         </div>
@@ -74,24 +74,26 @@ const SUBMISSION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdgeD8HWGmIgxp
       <div class="container">
         <div class="lg:w-[85%] w-full mx-auto">
           <div
-            class="fadeInUp flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-between items-center"
+            class="fadeInUp flex flex-col lg:flex-row gap-y-10 lg:gap-y-0 justify-between items-start"
           >
             <div class="rich-text">
-              <h2>Track Organiser Companion Guide</h2>
+              <h2>Call For Proposals</h2>
               <p
                 class="text-intro font-medium w-full text-charcoal lg:w-[570px]"
               >
-                Track organisers help curate the conference program as specialists
-                in their community, technology or field.
-                
-                The companion guide
-                outlines everything a track organiser needs to know, including
-                how to submit a track proposal before 23 January 2026.
+                The PyCon AU call for proposals (CFP) is open from 1&nbsp;February&nbsp;2026 until the end of Sunday the 29&nbsp;March&nbsp;2026, anywhere on earth. You can submit to the main conference and specialist tracks through the same process.
+                <br />
+                You can submit your proposal today via 
+                <a
+                  href={PRETALX_URL}
+                  target="_blank"
+                  class="text-violet no-underline!"
+                >Pretalx.</a>
               </p>
-              <Deadline deadline="2026-01-28T23:59:59+11:00" countdown={true}>
+              <Deadline deadline="2026-01-29T23:59:59-12:00" countdown={true}>
                 <div class="flex">
                   <a
-                    href={SUBMISSION_LINK}
+                    href={PRETALX_URL}
                     target="_blank"
                     class="btn-arrow btn-arrow--violet text-stone! no-underline!"
                     >Submit your proposal today</a
@@ -99,12 +101,8 @@ const SUBMISSION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdgeD8HWGmIgxp
                 </div>
               </Deadline>
             </div>
-            <div class="">
-              <a
-                href="/files/Specialist Track - Companion Guide.pdf"
-                class="btn-arrow btn-arrow--emerald"
-                >Grab the guide</a
-              >
+            <div class="mt-10">
+              <CfpNav />
             </div>
           </div>
         </div>
@@ -119,152 +117,13 @@ const SUBMISSION_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSdgeD8HWGmIgxp
           <div class="rich-text pb-10">
             <h2>Read the announcement</h2>
           </div>
-          <NewsPostCard slug="call-for-specialist-tracks" highlight={true} featured={false} />
+          <NewsPostCard slug="call-for-proposals-now-open" highlight={true} featured={false} />
         </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="bg-stone pt-10">
-      <div class="container">
-        <div class="lg:w-[824px] mx-auto">
-          <div class="rich-text">
-            <h2>Frequently Asked Questions</h2>
-          </div>
-          <FAQCategory title="Track topics and ideas">
-            <FAQEntry title="What tracks have run in the past?">
-              <p>
-                We've had a wide range of specialist tracks covering a range of
-                technologies, industries and professional fields.
-              </p>
-              <ul>
-                <li class="">Education (2015 - 2025)</li>
-                <li>DjangoCon AU (2013 - 2020, 2023)</li>
-                <li>Scientific & Data (2014 - 2017, 2019 - 2025)</li>
-                <li>Data & AI (2025)</li>
-                <li>DevOops (2020, 2021, 2023)</li>
-                <li>Security & Privacy (2018 - 2021)</li>
-                <li>OpenStack (2013-2015)</li>
-              </ul>
-              <p>
-                Noting that some tracks have changed organisers and name but
-                covered similar topics.
-              </p>
-            </FAQEntry>
-            <FAQEntry title="Can I run a track about <topic>?">
-              <p>
-                We welcome tracks on a wide range of topics - so assume yes!
-              </p>
-              <p>We have two rules of thumb for topic relevance:</p>
-              <ul>
-                <li>
-                  Related to the use of Python in some way, shape or form.
-                </li>
-                <li>
-                  Not a commercial or vendor-specific platform or product pitch.
-                </li>
-              </ul>
-            </FAQEntry>
-            <FAQEntry title="When are office hours to learn more?">
-              <p>We have two office hours sessions scheduled.</p>
-              <ul>
-                <li>Tuesday 16 December 2025 at 6pm AEDT</li>
-                <li>Thursday 15 January 2026 at 6pm AEDT</li>
-              </ul>
-            </FAQEntry>
-            <FAQEntry title="How do I join the office hours calls?">
-              <p>We're hosting office hours in the Python Australia Community Discord server.</p>
-              <p>Head on over to <a href="https://www.pythonaustralia.org/">pythonaustralia.org</a> and click the big "Join the Python Australia Discord" button. We recommend joining the server a few days before the office hours - but the mods will be available for quick approvals if you're joining last minute.</p>
-
-            </FAQEntry>
-            <FAQEntry title="I have a talk idea, can I submit now?">
-              <p>
-                LOVE your enthusiasm! Write that idea down and save it, but
-                please don't submit it just yet.
-              </p>
-              <p>
-                We'll open CFP early in 2026 for everyone to submit their
-                session ideas.
-              </p>
-            </FAQEntry>
-          </FAQCategory>
-          <FAQCategory title="Running a specialist track">
-            <FAQEntry title="How much effort is running a specialist track?">
-              <p>
-                In our experience, running a specialist track involves an hour
-                or two a week, with some extra time required during program
-                review to select talks.
-              </p>
-              <p>
-                Most effort is asynchronous, so you can schedule it in around
-                your work and life. Occasionally we'll schedule a call with
-                track organisers, typically on a week day after work (AEDT/AEST
-                timezones)
-              </p>
-            </FAQEntry>
-            <FAQEntry title="Do you have track mentors?">
-              <p>
-                We don't have a formal mentoring program for track organisers,
-                but we're happy to share our experience and teach you along the
-                way. The PyCon AU core organising team does all the heavy
-                lifting when it comes to logistics, and we hope that makes it
-                easier for you to organiser the track you're dreaming of.
-              </p>
-              <p>
-                Drop us an email if you're uncertain and we'll chat through your
-                questions.
-              </p>
-            </FAQEntry>
-            <FAQEntry title="Why have you introduced house rules?">
-              <p>
-                Naming things is hard - our house rules are primarily about
-                being open and transparent about what makes a track successful.
-                There are exceptions to every rule, and we'd love to hear from
-                you if the house rules don't quite work for your circumstances.
-              </p>
-            </FAQEntry>
-          </FAQCategory>
-          <FAQCategory title="Proposing a specialist track">
-            <FAQEntry title="How do I submit a track proposal?">
-              <p>Email program@pycon.org.au with your track proposal.</p>
-              <p>
-                Make sure you include the information outlined in the track
-                organiser companion guide, including contact details for both
-                track organisers.
-              </p>
-            </FAQEntry>
-            <FAQEntry title="I don't have a co-organiser, what should I do?">
-              <p>
-                Email us anyway! We often get similar track ideas proposed, and
-                its possible we can introduce you to a like minded co-organiser
-                to shape your vision together.
-              </p>
-            </FAQEntry>
-            <FAQEntry title="How are tracks shortlisted and selected?">
-              <p>
-                We have a two step process to shortlist and then select the
-                specialist tracks for PyCon AU 2026.
-              </p>
-              <ul>
-                <li>
-                  <strong>Shortlist:</strong> We'll pick a unique set of strong specialist
-                  tracks to include in the CFP. If multiple similar tracks are proposed,
-                  we'll likely select one track on a particular topic.
-                </li>
-                <li>
-                  <strong>Selection:</strong> Once the CFP closes, we'll finalise
-                  the specialist tracks based on the talks accepted. Tracks that
-                  don't receive enough quality proposals can still explore running
-                  half-day blocks in the schedule.
-                </li>
-              </ul>
-            </FAQEntry>
-          </FAQCategory>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <section
     id="custom-bg"

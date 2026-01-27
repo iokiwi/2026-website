@@ -59,12 +59,16 @@ const {
       <div class="flex flex-col items-center gap-y-3">
         
         <span x-text="timeLeft" class="text-xl"></span> until 
-        <span x-text="'' + new Date(deadline).toLocaleString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' })" class="text-xl"></span>
-        
+        <p>
+          <span x-text="'' + new Date(deadline).toLocaleString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' })" class="text-xl"></span>
+          <sup class="sup">^</sup>
+        </p>
       </div>
     </div>
   
     <slot />
+
+    <span class="text-xs text-[#707070] mt-5"><sup class="sup pr-1">^</sup>Time shown is converted using your browser timezone settings.</span>
   
   </div>
   <div x-show="!isFuture" x-text="closed" class="font-bold"></div>
