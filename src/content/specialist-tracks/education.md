@@ -4,7 +4,7 @@ shortDescription: "Teachers using python in the classroom 👍"
 organisers:
   - name: Nicky Ringland
     title: "Product Manager"
-    pronouns: ""
+    pronouns: "She/Her"
     photo: /images/specialist-tracks/nicky-ringland.jpg
     social: {
         "LinkedIn": "https://www.linkedin.com/in/nickyringland/"
