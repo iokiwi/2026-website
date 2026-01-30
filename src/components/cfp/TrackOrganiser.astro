@@ -17,7 +17,7 @@ const socialEntries = social ? Object.entries(social) : [];
 >
   <img
     src={photo}
-    class="lg:w-[140px] w-[99px] rounded-full shrink-0 self-center"
+    class="lg:w-[140px] w-[99px] aspect-square object-cover rounded-full shrink-0 self-center"
     alt={name}
   />
   <div class="flex flex-col gap-7 justify-between w-full">
@@ -41,7 +41,7 @@ const socialEntries = social ? Object.entries(social) : [];
       </h5>
     </div>
     {socialEntries.length > 0 && (
-      <ul class="hidden lg:flex gap-3 font-sans font-medium text-sm">
+      <ul class="hidden lg:flex justify-end gap-3 font-sans font-medium text-sm">
         {socialEntries.map(([network, url]) => (
           <li>
             <a
@@ -58,7 +58,7 @@ const socialEntries = social ? Object.entries(social) : [];
     )}
   </div>
   {socialEntries.length > 0 && (
-    <ul class="lg:hidden flex gap-3 font-sans font-medium text-sm w-full">
+    <ul class="lg:hidden flex justify-end gap-3 font-sans font-medium text-sm w-full">
       {socialEntries.map(([network, url]) => (
         <li>
           <a
