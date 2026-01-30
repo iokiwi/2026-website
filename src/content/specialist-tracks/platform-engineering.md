@@ -4,7 +4,7 @@ shortDescription: "Meet, learn, and share stories with others, and leave with in
 organisers:
   - name: Evan Kohilas
     title: "Platform Senior Software Engineer"
-    pronouns: ""
+    pronouns: "He/They"
     photo: /images/specialist-tracks/evan-kohilas.jpg
     social: {
       "LinkedIn": "https://www.linkedin.com/in/ekohilas/"
