@@ -4,25 +4,26 @@ import SideNavItem from "../SideNavItem.astro";
 // Import all cfp pages with their metadata
 const pages = import.meta.glob('../../pages/cfp/*.astro', { eager: true });
 
-// Extract nav metadata and sort by order
+// Helper to convert slug to title (e.g., "specialist-tracks" -> "Specialist Tracks")
+const slugToTitle = (slug: string) =>
+  slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
+// Extract nav metadata and sort by order, with fallback for pages without nav export
 const navItems = Object.entries(pages)
-  .filter(([path, mod]) => {
-    // Filter out index page and pages without nav metadata
-    return !path.includes('index.astro') && mod.nav;
-  })
-  .map(([path, mod]) => {
-    // Extract the slug from the file path
-    const slug = path.match(/\/cfp\/(.+)\.astro$/)?.[1];
-    
+  .filter(([path]) => !path.includes('index.astro'))
+  .map(([path, mod]: [string, any]) => {
+    const slug = path.match(/\/cfp\/(.+)\.astro$/)?.[1] ?? '';
+    const nav = mod.nav;
+
     return {
       href: `/cfp/${slug}`,
-      title: mod.nav.title,
-      order: mod.nav.order,
-      tile: mod.nav.tile !== undefined ? mod.nav.tile : true,
-      image: mod.nav.image
+      title: nav?.title ?? slugToTitle(slug),
+      order: nav?.order ?? Infinity,
+      tile: nav?.tile !== undefined ? nav.tile : true,
+      image: nav?.image
     };
   })
-  .sort((a, b) => a.order - b.order);
+  .sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 ---
 
 <div class="lg:w-[308px] w-full">
