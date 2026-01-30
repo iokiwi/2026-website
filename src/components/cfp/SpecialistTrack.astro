@@ -1,0 +1,49 @@
+---
+import TrackOrganiser from "./TrackOrganiser.astro";
+
+export interface Organiser {
+  name: string;
+  title: string;
+  pronouns?: string;
+  photo: string;
+  social?: Record<string, string>;
+}
+
+export interface Props {
+  title: string;
+  shortDescription: string;
+  organisers: Organiser[];
+}
+
+const { title, shortDescription, organisers } = Astro.props;
+---
+
+<div class="specialist-track mb-16">
+  <h2
+    class="text-3xl font-bold font-sans text-emerald pt-14 text-center lg:text-left fadeInUp"
+  >
+    {title}
+  </h2>
+
+  <p class="text-lg text-charcoal mt-4 fadeInUp">
+    {shortDescription}
+  </p>
+
+  <div class="rich-text mt-6 fadeInUp">
+    <slot />
+  </div>
+
+  {organisers.length > 0 && (
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 pt-5">
+      {organisers.map((organiser) => (
+        <TrackOrganiser
+          name={organiser.name}
+          title={organiser.title}
+          pronouns={organiser.pronouns}
+          photo={organiser.photo}
+          social={organiser.social}
+        />
+      ))}
+    </div>
+  )}
+</div>

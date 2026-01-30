@@ -1,17 +1,18 @@
 ---
-import AboutNav from "../../components/about/AboutNav.astro";
+import { getCollection } from "astro:content";
 import CfpNav from "../../components/cfp/CfpNav.astro";
-import CfpNavItem from "../../components/cfp/CfpNavItem.astro";
+import SpecialistTrack from "../../components/cfp/SpecialistTrack.astro";
 import Footer from "../../components/Footer.astro";
 import Crumb from "../../components/header/Crumb.astro";
 import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
 import PageHeader from "../../components/header/PageHeader.astro";
 import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
-import TypographyLink from "../../components/typography/TypographyLink.astro";
 import Base from "../../layouts/Base.astro";
+
+const tracks = await getCollection("specialist-tracks");
 ---
 
-<Base title="The Conference">
+<Base title="Specialist Tracks">
   <PageHeader dark={true} starColour="violet">
     <HeaderBreadcrumbs colour="lemon">
       <Crumb href="/cfp/">Call for Proposals</Crumb>
@@ -30,10 +31,21 @@ import Base from "../../layouts/Base.astro";
           <div
             class="flex flex-col lg:flex-row justify-between items-start gap-14"
           >
-            <div class="lg:w-[80%] w-full rich-text">
-              <p>
-                Specialist Track Lipsum
-              
+            <div class="lg:w-[80%] w-full">
+              {
+                tracks.map(async (track) => {
+                  const { Content } = await track.render();
+                  return (
+                    <SpecialistTrack
+                      title={track.data.title}
+                      shortDescription={track.data.shortDescription}
+                      organisers={track.data.organisers}
+                    >
+                      <Content />
+                    </SpecialistTrack>
+                  );
+                })
+              }
             </div>
 
             <CfpNav />
@@ -43,25 +55,7 @@ import Base from "../../layouts/Base.astro";
     </div>
   </section>
 
-  {
-    /*
-  <section class="bg-lime pt-20">
-    <div class="container">
-      <div class="grid lg:grid-cols-2 grid-cols-1 gap-5 pb-20">
-        <a href="#" class="btn-arrow btn-arrow--emerald btn-arrow--2col"
-          ><span>Call to Action Link</span></a
-        >
-        <a href="#" class="btn-arrow btn-arrow--emerald btn-arrow--2col"
-          ><span>Call to Action Link</span></a
-        >
-      </div>
-    </div>
-  </section>
-  */
-  }
-
   <Footer />
 
-  <!-- Main scripts (will be added in Phase 5) -->
   <script src="/src/scripts/animations.js"></script>
 </Base>

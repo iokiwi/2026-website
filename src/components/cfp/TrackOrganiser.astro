@@ -1,0 +1,78 @@
+---
+export interface Props {
+  name: string;
+  title: string;
+  pronouns?: string;
+  photo: string;
+  social?: Record<string, string>;
+}
+
+const { name, title, pronouns, photo, social } = Astro.props;
+
+const socialEntries = social ? Object.entries(social) : [];
+---
+
+<div
+  class="fadeInUp bg-emerald px-8 py-6 rounded-[3.125rem] flex flex-col lg:flex-row items-center gap-7"
+>
+  <img
+    src={photo}
+    class="lg:w-[140px] w-[99px] rounded-full"
+    alt={name}
+  />
+  <div class="flex flex-col gap-7 justify-between lg:w-[55%] w-full">
+    <div
+      class="flex flex-col lg:flex-row justify-between lg:text-left text-center"
+    >
+      <div class="space-y-1">
+        <h5
+          class="text-stone text-[1.25rem] leading-none font-semibold font-sans"
+        >
+          {name}
+        </h5>
+        <h5
+          class="text-lime text-[1.25rem] leading-none font-semibold font-sans"
+        >
+          {title}
+        </h5>
+      </div>
+      {pronouns && (
+        <span class="text-stone/50 text-[1.25rem] font-medium font-sans">
+          {pronouns}
+        </span>
+      )}
+    </div>
+    {socialEntries.length > 0 && (
+      <ul class="hidden lg:flex gap-3 font-sans font-medium text-sm">
+        {socialEntries.map(([network, url]) => (
+          <li>
+            <a
+              href={url}
+              class="underline text-stone hover:text-violet transition-colors duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {network}
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+  {socialEntries.length > 0 && (
+    <ul class="lg:hidden flex gap-3 font-sans font-medium text-sm w-full">
+      {socialEntries.map(([network, url]) => (
+        <li>
+          <a
+            href={url}
+            class="underline text-stone hover:text-violet transition-colors duration-300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {network}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

@@ -22,7 +22,28 @@ const sponsors = defineCollection({
   }),
 });
 
+const specialistTracks = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    shortDescription: z.string(),
+    organisers: z
+      .array(
+        z.object({
+          name: z.string(),
+          title: z.string(),
+          pronouns: z.string().optional(),
+          photo: z.string(),
+          social: z.record(z.string(), z.string()).optional(),
+        })
+      )
+      .optional()
+      .default([]),
+  }),
+});
+
 export const collections = {
   posts,
   sponsors,
+  "specialist-tracks": specialistTracks,
 };
