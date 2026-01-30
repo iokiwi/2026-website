@@ -13,34 +13,32 @@ const socialEntries = social ? Object.entries(social) : [];
 ---
 
 <div
-  class="fadeInUp bg-emerald px-8 py-6 rounded-[3.125rem] flex flex-col lg:flex-row items-center gap-7"
+  class="fadeInUp bg-emerald px-8 py-6 rounded-[3.125rem] flex flex-col lg:flex-row lg:items-stretch items-center gap-7"
 >
   <img
     src={photo}
-    class="lg:w-[140px] w-[99px] rounded-full"
+    class="lg:w-[140px] w-[99px] rounded-full shrink-0 self-center"
     alt={name}
   />
-  <div class="flex flex-col gap-7 justify-between lg:w-[55%] w-full">
-    <div
-      class="flex flex-col lg:flex-row justify-between lg:text-left text-center"
-    >
-      <div class="space-y-1">
+  <div class="flex flex-col gap-7 justify-between w-full">
+    <div class="flex flex-col lg:text-left text-center">
+      <div class="flex flex-row justify-between items-baseline gap-2">
         <h5
-          class="text-stone text-[1.25rem] leading-none font-semibold font-sans"
+          class="text-stone text-[1.25rem] leading-tight font-semibold font-sans"
         >
           {name}
         </h5>
-        <h5
-          class="text-lime text-[1.25rem] leading-none font-semibold font-sans"
-        >
-          {title}
-        </h5>
+        {pronouns && (
+          <span class="text-stone/50 text-[1.25rem] font-medium font-sans shrink-0">
+            {pronouns}
+          </span>
+        )}
       </div>
-      {pronouns && (
-        <span class="text-stone/50 text-[1.25rem] font-medium font-sans">
-          {pronouns}
-        </span>
-      )}
+      <h5
+        class="text-lime text-[1.25rem] leading-tight font-semibold font-sans mt-1"
+      >
+        {title}
+      </h5>
     </div>
     {socialEntries.length > 0 && (
       <ul class="hidden lg:flex gap-3 font-sans font-medium text-sm">
