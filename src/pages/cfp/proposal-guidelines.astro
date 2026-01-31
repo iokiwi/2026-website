@@ -12,6 +12,12 @@ import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
 import Base from "../../layouts/Base.astro";
 
 const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
+
+export const nav = {
+  order: 1,
+  title: "Proposal Guidelines",
+  image: "/images/cfp/accommodation/speaking_1.jpg",
+};
 ---
 
 <Base title="Specialist Tracks">
@@ -19,9 +25,20 @@ const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.lo
     <HeaderBreadcrumbs colour="lemon">
       <Crumb href="/cfp/">Call for Proposals</Crumb>
     </HeaderBreadcrumbs>
-    <PageHeaderTitle textColour="lemon">
-      <h1>Proposal Guidelines</h1>
-    </PageHeaderTitle>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>Proposal Guidelines</h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_2.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
   </PageHeader>
 
   <section>
@@ -70,7 +87,7 @@ const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.lo
 
           <p>Due to a quirk in our how our software works, you will always submit your talk to one track (or the main conference) to start with. Further down the page, you can select additional tracks that you would like your talk to be submitted to, and you can select more than one!</p>
 
-          <p><strong>Important:</strong> Please only select the tracks you consciously want to submit to. All talks are considered for the main conference if not selected for a specialist track. Selecting all tracks for an unrelated talk does not increase your chance of being selected, and may result in being reviewed negatively for being unrelated to the track topic.</p>
+          <p><strong>Important:</strong> Please only select the tracks you specifically want to submit to. All talks are considered for the main conference if not selected for a specialist track. Selecting all tracks for an unrelated talk does not increase your chance of being selected, and may result in being reviewed negatively for being unrelated to the track topic.</p>
 
           <p>You do not have to have written your talk before submitting to PyCon AU. Your proposal should contain enough detail so that reviewers can understand what you intend to speak about. Take some time to read our sample proposal below to understand what kind of information to include in your abstract, description and notes.</p>
 

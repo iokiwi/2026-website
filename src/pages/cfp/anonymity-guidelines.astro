@@ -1,0 +1,183 @@
+---
+import { getCollection } from "astro:content";
+import Callout from "../../components/cfp/Callout.astro";
+import CfpNav from "../../components/cfp/CfpNav.astro";
+import Comparison from "../../components/cfp/Comparison.astro";
+import ComparisonCard from "../../components/cfp/ComparisonCard.astro";
+import SpecialistTrack from "../../components/cfp/SpecialistTrack.astro";
+import Footer from "../../components/Footer.astro";
+import Crumb from "../../components/header/Crumb.astro";
+import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
+import PageHeader from "../../components/header/PageHeader.astro";
+import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
+import Base from "../../layouts/Base.astro";
+
+const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
+
+export const nav = {
+  order: 5,
+  title: "Anonymity Guidelines",
+  image: "/images/cfp/accommodation/speaking_6.jpg",
+};
+---
+<style>
+  span.anon {
+    position: relative;
+    color: transparent !important;
+  }
+
+  span.anon::after {
+    content: "Anonymity";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-lemon);
+  }
+
+  span.anon:hover::after {
+    content: "REDACTED";
+    color: var(--color-charcoal);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));;
+  }
+</style>
+
+<Base title="Specialist Tracks">
+  <PageHeader dark={true} starColour="violet">
+    <HeaderBreadcrumbs colour="lemon">
+      <Crumb href="/cfp/">Call for Proposals</Crumb>
+    </HeaderBreadcrumbs>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>
+          <span class="anon hover:bg-lemon hover:text-charcoal">Anonymity</span>
+          
+          Guidelines
+        </h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_1.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
+  </PageHeader>
+
+  <section>
+    <div class="header-divider header-divider--lemon"></div>
+
+    <div class="bg-stone pt-20 pb-5">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="flex flex-col-reverse lg:flex-row justify-between items-start gap-14">
+            <div class="flex flex-col gap-10 shrink"> 
+              <div class="lg:w-[85%] w-full shrink rich-text">
+                <h2>Why is the CFP anonymous?</h2>
+
+                <p>PyCon AU aims to curate a diverse and interesting lineup of talks. In order to review talk proposals with as little bias as is possible, we have made our proposal review process anonymous.</p>
+
+                <p>This may be different to the processes you have seen at other conferences, so we have created this FAQ for you. If you have questions that aren't answered here, you can email <a href="mailto:program@pycon.org.au">program@pycon.org.au</a></p>
+
+                <p>Put any and all personally-identifiable information in the "Profile" section of your submission. This is where we want it to be!</p>
+
+                
+
+              </div>
+
+            </div>
+
+            <CfpNav />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+
+    <div class="bg-stone py-10">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto rich-text">
+          <Callout title="Important" colour="lemon" class="lg:w-[85%]" >
+            <p>
+              If we identify that you have included information that identifies you, the organisers will edit your proposal before the review process begins. We can't guarantee it will sound exactly how you intended it, so we encourage you to make very sure that you have removed identifying information before you submit your talk proposal to us.
+              </p>
+          </Callout>
+        </div>
+        <div class="lg:w-[85%] w-full mx-auto rich-text [&_p,&_ul]:max-w-[85%]">
+
+          <h2>How do I write a proposal that doesn’t identify me?</h2>
+          <p>
+            The basic guiding principle is to give only the information about yourself that is relevant to the talk.
+            This means:
+            <ul>
+              <li>Don't include your name, your pronouns (he/she/they), or other references to your gender ("this guy", "her work")</li>
+              <li>Don't include links to your website, or videos of you giving the talk</li>
+              <li>Don't mention your affiliation with your employer or your project, unless it directly relates to the talk:</li>
+            </ul>
+          </p>
+
+          <Comparison>
+            <ComparisonCard title="Irrelevant affiliation">
+              <p>
+                The speaker, who is a Lead Canine Appreciator for Dog Patting Corp, will explore how to build a home automation system using MicroPython.
+              </p>
+            </ComparisonCard>
+
+            <ComparisonCard title="Relevant affiliation">
+              <p>
+                This talk will explore the ways that the Dog Patting Corp team used Python to make their work patting dogs easier.
+              </p>
+            </ComparisonCard>
+
+          </Comparison>
+
+
+          <h2>How do I tell you about myself and why I am the best person to give this talk… without identifying myself?</h2>
+          <p>
+            There is plenty you can say about your work without including your name, references to your gender, or other links. You can accomplish this even without referring to your employer’s name or affiliation with a project.
+          </p>
+          <p>Things we want to hear about:
+            <ul>
+              <li>why you are passionate about this topic</li>
+              <li>research or work you have already done on this topic</li>
+              <li>research or work you are planning to do on this topic</li>
+              <li>what you’re interested in</li>
+              <li>what kinds of industries you are (or have been) involved in</li>
+              <li>what kind of experience you are bringing to this topic</li>
+            </ul>
+          </p>
+
+          <Comparison>
+            <ComparisonCard title="Example 1" icon="/images/tick-lime.svg">
+              <p>
+                I have worked in the dog patting industry for several years and am particularly interested in the problems of how to pat extremely fluffy dogs. I have also worked on patting short-haired dogs. This experience gives me a unique perspective on the problem of dog patting, which I am looking forward to sharing with the audience.
+              </p>
+              <p>
+                I am also passionate about the history of dog patting, and have both attended and run several workshops on the cultural legacy of being nice to our canine companions.
+              </p>
+
+            </ComparisonCard>
+
+            <ComparisonCard title="Example 2" icon="/images/tick-lime.svg">
+              <p>
+                I started dog patting this year. I have a lot of thoughts about effective ways to teach dog patting to beginners, and I am enthusiastic about making other people's journeys into the world of patting dogs more enjoyable and accessible.
+              </p>
+            </ComparisonCard>
+
+          </Comparison>
+                    
+
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script src="/src/scripts/animations.js"></script>
+</Base>

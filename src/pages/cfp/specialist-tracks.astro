@@ -10,6 +10,12 @@ import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
 import Base from "../../layouts/Base.astro";
 
 const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
+
+export const nav = {
+  order: 2,
+  title: "Specialist Tracks",
+  image: "/images/cfp/accommodation/speaking_3.jpg",
+};
 ---
 
 <Base title="Specialist Tracks">
@@ -17,9 +23,20 @@ const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.lo
     <HeaderBreadcrumbs colour="lemon">
       <Crumb href="/cfp/">Call for Proposals</Crumb>
     </HeaderBreadcrumbs>
-    <PageHeaderTitle textColour="lemon">
-      <h1>Specialist Tracks</h1>
-    </PageHeaderTitle>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>Specialist Tracks</h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_3.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
   </PageHeader>
 
   <section>
