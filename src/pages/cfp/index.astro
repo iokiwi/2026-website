@@ -48,11 +48,11 @@ const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
             />
           </div>
           <div class="lg:w-1/2 w-full fadeInUp">
-            <div class="group flex justify-center relative">
+            <div class="group flex justify-end relative">
               <img
-                src="/images/about-pycon.svg"
+                src="/images/cfp/speaking_5_square.jpg"
                 alt="pycon"
-                class="lg:absolute top-1/2 lg:-translate-y-1/2 left-1/2 lg:-translate-x-1/2 lg:pb-0 pb-14"
+                class="lg:pb-0 pb-14 rounded-4xl max-h-96"
               />
               <!-- <img src="/images/about-banner.png" class="w-[408px] mx-auto group-hover:visible invisible group-hover:opacity-100 opacity-0 transition-all duration-300" alt="About Banner"> -->
             </div>
@@ -81,7 +81,7 @@ const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
               <p
                 class="text-intro font-medium w-full text-charcoal lg:w-[570px]"
               >
-                The PyCon AU call for proposals (CFP) is open from 1&nbsp;February&nbsp;2026 until the end of Sunday the 29&nbsp;March&nbsp;2026, anywhere on earth. You can submit to the main conference and specialist tracks through the same process.
+                The PyCon AU call for proposals (CFP) is open from <strong>1&nbsp;February&nbsp;2026</strong> until <strong>29&nbsp;March&nbsp;2026</strong>, anywhere on earth (<a href="https://www.timeanddate.com/time/zones/aoe" target="_blank">AOE</a>). You can submit to the main conference and specialist tracks through the same process.
                 <br />
                 You can submit your proposal today via 
                 <a
@@ -90,7 +90,7 @@ const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
                   class="text-violet no-underline!"
                 >Pretalx.</a>
               </p>
-              <Deadline deadline="2026-01-29T23:59:59-12:00" countdown={true}>
+              <Deadline deadline="2026-03-29T23:59:59-12:00" countdown={true}>
                 <div class="flex">
                   <a
                     href={PRETALX_URL}
