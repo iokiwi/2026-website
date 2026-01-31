@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import Callout from "../../components/cfp/Callout.astro";
 import CfpNav from "../../components/cfp/CfpNav.astro";
 import Comparison from "../../components/cfp/Comparison.astro";
 import ComparisonCard from "../../components/cfp/ComparisonCard.astro";
@@ -85,9 +86,13 @@ export const nav = {
 
           <p>Our CFP process also encompasses proposal submissions to the Specialist Tracks, so you can submit your talk to the main conference and to Specialist Tracks with one click.</p>
 
-          <p>Due to a quirk in our how our software works, you will always submit your talk to one track (or the main conference) to start with. Further down the page, you can select additional tracks that you would like your talk to be submitted to, and you can select more than one!</p>
+          <p>Due to a quirk in our how our software works, you will always submit your talk to one track (or the main conference) to start with. Further down the submission form, you can select additional tracks that you would like your talk to be submitted to, and you can select more than one!</p>
 
-          <p><strong>Important:</strong> Please only select the tracks you specifically want to submit to. All talks are considered for the main conference if not selected for a specialist track. Selecting all tracks for an unrelated talk does not increase your chance of being selected, and may result in being reviewed negatively for being unrelated to the track topic.</p>
+          <Callout colour="lemon" class="lg:w-[95%] -ml-10" >
+            <p class="max-w-full!">
+              <strong>Important:</strong>Please only select the tracks you specifically want to submit to. All talks are considered for the main conference if not selected for a specialist track. Selecting all tracks for an unrelated talk does not increase your chance of being selected, and may result in being reviewed negatively for being unrelated to the track topic.
+            </p>
+          </Callout>
 
           <p>You do not have to have written your talk before submitting to PyCon AU. Your proposal should contain enough detail so that reviewers can understand what you intend to speak about. Take some time to read our sample proposal below to understand what kind of information to include in your abstract, description and notes.</p>
 
@@ -140,7 +145,7 @@ Learning from my experience doing remote output monitoring as part of a leading 
 
           <h4>Things to consider:</h4>
           <p>
-            <ul>
+            <ul class="[&_li]:font-light!">
               <li>Short abstracts make it difficult for reviewers to assess what you are going to cover.</li>
               <li>The longer abstract outlines why the talk is relevant to the audience, and includes some of the topics and skills that will be covered.</li>
               <li>Explaining the target audience helps both reviewers and attendees understand if the talk is focused on a generalist audience, a niche specialist topic, and to gauge the technical depth covered. Note that we actively encourage a range of both beginner and advanced topics at PyCon AU.</li>
@@ -150,8 +155,8 @@ Learning from my experience doing remote output monitoring as part of a leading 
           <h4>Further improvements:</h4>
           
           <p>
-            <ul>
-              <li>You can add headings to your description if you think it helps present your talk in a structured way. Pretalx supports markdown style headings and formatting.</li>
+            <ul class="[&_li]:font-light!">
+              <li class="font-light">You can add headings to your description if you think it helps present your talk in a structured way. Pretalx supports markdown style headings and formatting.</li>
               <li>You might consider an approximate timing breakdown of your talk in the notes to reviewers field. This isn't published, but can show reviewers how you're approaching the topic, and that you've thought about the presentation.</li>
             </ul>
           </p>

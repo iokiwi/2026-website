@@ -11,6 +11,8 @@ import Deadline from "../../components/Deadline.astro";
 import ConnectSubscribeGetInTouchCards from "../../components/ConnectSubscribeGetInTouchCards.astro";
 import Base from "../../layouts/Base.astro";
 import CfpNav from "../../components/cfp/CfpNav.astro";
+import WorkshopCard from "../../components/cfp/WorkshopCard.astro";
+import { workshops } from "../../data/workshops";
 
 const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
 ---
@@ -87,7 +89,7 @@ const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
                   href={PRETALX_URL}
                   target="_blank"
                   class="text-violet no-underline!"
-                >Pretalx.</a>
+                >Pretalx</a>.
               </p>
               <Deadline deadline="2026-03-29T23:59:59-12:00" countdown={true}>
                 <div class="flex">
@@ -110,7 +112,7 @@ const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
   </section>
 
   <section>
-    <div class="bg-stone pt-10 pb-20">      
+    <div class="bg-stone pt-10 pb-20">
       <div class="container">
         <div class="lg:w-[85%] w-full mx-auto ">
           <div class="rich-text pb-10">
@@ -122,7 +124,36 @@ const PRETALX_URL = "https://pretalx.com/pycon-au-2026/cfp/";
     </div>
   </section>
 
-  
+  <section>
+    <div class="bg-stone pt-10 pb-20">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="rich-text pb-10">
+            <div class="flex flex-wrap items-baseline justify-between gap-4 mb-4">
+              <h2 class="mb-0!">Attend a CFP workshop</h2>
+              <a href="/cfp/workshops" class="btn px-3 py-3 btn--lavender text-white! no-underline!">Learn more</a>
+            </div>
+            <p class="text-intro font-medium w-full text-charcoal lg:w-[850px]">
+              CFP workshops are free to attend and can help you plan your talk proposal to PyCon AU 2026. Workshops are held both in-person and online with the support of local communities around Australia.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {workshops.map((workshop) => (
+              <WorkshopCard
+                location={workshop.location}
+                date={workshop.date}
+                description={workshop.description}
+                time={workshop.time}
+                rsvpUrl={workshop.rsvpUrl}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   <section
     id="custom-bg"
