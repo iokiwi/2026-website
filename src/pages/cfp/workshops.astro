@@ -1,0 +1,141 @@
+---
+import CfpNav from "../../components/cfp/CfpNav.astro";
+import WorkshopCard from "../../components/cfp/WorkshopCard.astro";
+import Footer from "../../components/Footer.astro";
+import Crumb from "../../components/header/Crumb.astro";
+import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
+import PageHeader from "../../components/header/PageHeader.astro";
+import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
+import Base from "../../layouts/Base.astro";
+import { workshops } from "../../data/workshops";
+
+export const nav = {
+  order: 7,
+  title: "Attend a CFP Workshop",
+  image: "/images/cfp/speaking_4.jpg",
+};
+---
+
+<Base title="Proposal Writing Workshops">
+  <PageHeader dark={true} starColour="violet">
+    <HeaderBreadcrumbs colour="lemon">
+      <Crumb href="/cfp/">Call for Proposals</Crumb>
+    </HeaderBreadcrumbs>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>CFP workshops</h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_6.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
+  </PageHeader>
+
+  <section>
+    <div class="header-divider header-divider--lemon"></div>
+
+    <div class="bg-stone pt-20 pb-5">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="flex flex-col-reverse lg:flex-row justify-between items-start gap-14">
+            <div class="flex flex-col gap-10 shrink">
+              <div class="lg:w-[80%] w-full shrink rich-text">
+                <h2>What to expect</h2>
+                <p>
+                  PyCon AU CFP workshops are designed to help prospective speakers prepare and submit strong talk proposals. Whether you're a first-time speaker or a seasoned presenter, our workshops provide valuable insights into crafting engaging and effective proposals.
+                </p>
+                <p>
+                  Workshops are free to attend, and obligation free meaning you don't have to commit to submitting a proposal before you attend the workshop. Most workshops will be run by members of the PyCon AU organising team or by experienced speakers from previous PyCon AU conferences.
+                </p>
+
+                <h2>How to prepare</h2>
+                <p>
+                  Workshops are hands on, so bring a laptop or a pen and paper.
+                </p>
+                <p>
+                  We'll guide you through the process of brainstorming, structuring, and writing your proposal. If you have a specific topic in mind, feel free to bring that along too!
+                </p>
+                <p>
+                  While not required, it might help to already have a Pretalx account set up. You can ask questions about Pretalx at the workshop.
+                </p>
+              </div>
+            </div>
+
+            <CfpNav />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="bg-stone pt-10 pb-20">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="rich-text pb-10">
+            <h2>Attend a CFP workshop</h2>
+            <p class="text-intro font-medium w-full text-charcoal lg:w-[850px]">
+              CFP workshops are free to attend and can help you plan your talk proposal to PyCon AU 2026. Workshops are held both in-person and online with the support of local communities around Australia.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {workshops.map((workshop) => (
+              <WorkshopCard
+                location={workshop.location}
+                date={workshop.date}
+                description={workshop.description}
+                time={workshop.time}
+                rsvpUrl={workshop.rsvpUrl}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="bg-stone pt-10 pb-20">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="rich-text">
+            <h2>Run a CFP workshop with your community!</h2>
+            <p>
+              Our workshop is open source, and published with a train-the-trainer model in mind. If you'd like to run a workshop with your local community, club or group, we'd love to help you make it happen.
+            </p>
+            <p>
+              The workshop slides, presenters notes, and event resources (agenda + template graphic for promotion) will be published to GitHub, Soon&trade;
+            </p>
+            <h4>Plan ahead & get in touch</h4>
+            <p>
+              While the workshop content is freely available, there's a few things that can help make your event run smoothly.
+              <ol>
+                <li>Plan ahead by at least 2 weeks. This gives attendees time to RSVP and prepare.</li>
+                <li>A sit down venue with tables and chairs (and WiFi) is a better format than a standing venue (like a pub)</li>
+                <li>Plan to have extra facilitators who can help attendees brainstorm and offer feedback.</li>
+              </ol>
+            </p>
+            <p class="flex gap-3 items-start">
+              <img src="/images/info-circle.svg" alt="" class="w-6 h-auto mt-1 pt-0! shrink-0" />
+              <span>If you would like your workshop to be published on this page it must have an appropriate Code of Conduct and be free to attend. PyCon AU's code of conduct is open source to use a starting point.</span>
+            </p>
+            <p>
+              Email us at <a href="mailto:program@pycon.org.au">program@pycon.org.au</a> to discuss running a workshop with your community - we'd love to support you!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script src="/src/scripts/animations.js"></script>
+</Base>
