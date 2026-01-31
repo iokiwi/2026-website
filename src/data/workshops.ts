@@ -11,7 +11,7 @@ export const workshops: Workshop[] = [
     location: "Online",
     date: "19 February",
     time: "6pm - 7pm AEDT",
-    description: "Hosted by PyCon AU and friends. Join us online for a hands-on remote workshop."
+    description: "Hosted by PyCon AU via **Python Australia Community Server** on discord. Join us online for a hands-on remote workshop."
   },
   {
     location: "Sydney",
@@ -31,7 +31,7 @@ export const workshops: Workshop[] = [
   {
     location: "Online",
     date: "TBA Mid March",
-    description: "Hosted by PyCon AU and friends. Join us online for a hands-on remote workshop."
+    description: "Hosted by PyCon AU via **Python Australia Community Server** on discord. Join us online for a hands-on remote workshop."
   },
   {
     location: "Brisbane",

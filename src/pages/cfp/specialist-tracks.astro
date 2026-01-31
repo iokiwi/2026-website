@@ -8,6 +8,7 @@ import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
 import PageHeader from "../../components/header/PageHeader.astro";
 import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
 import Base from "../../layouts/Base.astro";
+import Callout from "../../components/cfp/Callout.astro";
 
 const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
 
@@ -54,8 +55,13 @@ export const nav = {
                 Specialist tracks are curated sessions focusing on specific topics within the Python ecosystem. Each track is organised by community members with deep expertise in their area.
               </p>
               <p>
-                In 2026 we're excited to expand the number of specialist tracks on offer at PyCon AU. In addition to our returning favourites, we have 4 new specialist tracks looking for talks!
+                In 2026 we're excited to expand the number of specialist tracks on offer at PyCon AU. In addition to our returning friends, we have 4 new specialist tracks looking for talks!
               </p>
+
+              <Callout type="info" class="mt-10 -ml-10 font-light text-base">
+                <strong>Specialist Tracks need your talks!</strong>
+                <br />
+                All talks submitted to specialist tracks will be reviewed and considered equally for the main conference. If a track does not receive sufficient proposals, your talk will still be considered for PyCon AU.
             </div>
 
             <CfpNav />
