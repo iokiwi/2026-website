@@ -1,0 +1,137 @@
+---
+import AttendNav from "../../components/attend/AttendNav.astro";
+import Footer from "../../components/Footer.astro";
+import Crumb from "../../components/header/Crumb.astro";
+import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
+import PageHeader from "../../components/header/PageHeader.astro";
+import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
+import TypographyLink from "../../components/typography/TypographyLink.astro";
+import Base from "../../layouts/Base.astro";
+
+export const nav = {
+  order: 7,
+  title: "Financial Assistance",
+  image: "/images/attend/ways-to-help.jpg",
+  // image: "/images/thumb-2.png",
+};
+
+const finaid_form_url = "https://forms.gle/PZ7WEux6M5sTFVMu7";
+---
+
+<Base title="Financial Assistance">
+  <PageHeader dark={true} starColour="violet">
+    <HeaderBreadcrumbs colour="lavender">
+      <Crumb href="/attend/">Attendee Guide</Crumb>
+    </HeaderBreadcrumbs>
+    <PageHeaderTitle textColour="lavender" fullWidthTitle={true}>
+      <h1 class="text-balance">
+        {/* TODO: Consider if all titles should do this? */}
+        Financial Assistance
+      </h1>
+    </PageHeaderTitle>
+  </PageHeader>
+
+  <section>
+    <div class="header-divider header-divider--lavender"></div>
+
+    <div class="bg-stone py-20">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div
+            class="flex flex-col lg:flex-row justify-between items-start gap-14"
+          >
+            <div class="lg:w-[80%] w-full rich-text">
+              <p class="text-intro font-medium text-charcoal fadeInUp">
+                Thanks to the support of our sponsors, we have budget set aside
+                for providing financial assistance to anyone who might
+                otherwise find it difficult to attend. This includes both speakers and attendees.
+              </p>
+              <h2 id="about">About Financial Assistance</h2>
+
+              <p>
+                Financial assistance grants take the form of reimbursement for
+                expenses incurred in getting to and presenting at the conference.
+              </p>  
+              <p>
+                These expenses can include:
+                <ul>
+                  <li>Flights or other transport to Brisbane</li>
+                  <li>Accommodation costs</li>
+                  <li>Other costs associated with attending such as a support worker, child care or a substitute teacher.</li>
+                </ul>
+              </p>
+              
+              <p>
+                Please ask only for what you need in order to be able to present at
+                the conference and highlight any opportunities you would use to save
+                costs, such as finding cheaper accommodation further from the city
+                (public <a href="/attend/transport">transport in Brisbane</a> provides easy access to the venue).
+              </p>
+
+              <h2 id="application">Application</h2>
+              <p>
+                To apply for financial aid please fill out the application form linked
+                by the button below.  Applications will be approved in two batches:
+                <ol>
+                  <li>For applications submitted before 29 March 2026, we intend on responding in late April. This is mostly applicable to speakers applying for financial assistance.</li>
+                  <li>For applications submitted after 29 March 2026, we will respond progressively as we are able</li>
+                </ol>
+              </p>
+              <p>
+                To ensure equal consideration, please submit your application by the <strong>29 March 2026 Anywhere on Earth (<a href="https://www.timeanddate.com/time/zones/aoe" target="_blank">AOE</a>)</strong></strong>.
+              </p>
+              <p>
+                Submissions received after this date may still be considered if there is additional available funding.
+              </p>
+
+              <div class="flex flex-col justify-center items-center">
+                <a href={finaid_form_url} target="_blank" class="btn-arrow no-underline!">
+                  <span>Apply Today</span>
+                </a>
+              </div>
+
+              <h2 id="reimbursement">Reimbursement Process</h2>
+              <p>
+                If granted assistance, you will still be expected to organise
+                and purchase travel and accommodation yourself and request reimbursement.
+                You will be given a maximum amount of reimbursement based on the
+                assistance you requested. Once assistance is granted, you can start
+                making bookings and sending us your receipts.
+              </p>
+              <p>
+                If possible, we ask that you submit your reimbursement requests in batches.
+                For example you might request airfares and deposits early on, and then submit
+                a second request for accomodation and incidentals after the conference.
+              </p>
+              <p>
+                Your grant confirmation email will outline the requirements for receipts
+                and proof of payment, as well as how to submit receipts for reimbursement.
+              </p>
+              <p>If you have any questions about financial assistance please contact us at <a href="mailto:contact@pycon.org.au">contact@pycon.org.au</a></p>
+
+              <h2 id="financial-assistance-for-attendees">Financial assistance for attendees</h2>
+              <p>
+                We are hoping to provide financial assistance for attendees who might otherwise find it difficult to attend. If we are able to provide it, attendee financial assistance would include either:
+                 <ul>
+                  <li>a free conference ticket (at the enthusiast level), OR</li>
+                  <li>a free conference ticket (at the enthusiast level) plus additional reimbursed expenses as described above</li>
+                </ul>
+                </p>
+              <p>Note that we will only be able to consider applications for attendee financial assistance if you are travelling from within Australia, or from a location in the Pacific/Oceania region that does not have a more appropriate local PyCon.</p>
+              <p>Our ability to provide this will depend entirely on how much <a href="/sponsor/">sponsorship</a> we receive, and we will announce the availability financial assistance along with instructions on how to apply if and when we are able.</p>
+
+              
+            </div>
+
+            <AttendNav />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- Main scripts (will be added in Phase 5) -->
+  <script src="/src/scripts/animations.js"></script>
+</Base>
