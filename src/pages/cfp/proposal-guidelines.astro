@@ -11,6 +11,7 @@ import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
 import PageHeader from "../../components/header/PageHeader.astro";
 import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
 import Base from "../../layouts/Base.astro";
+import TypographyLink from "../../components/typography/TypographyLink.astro";
 
 const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
 
@@ -84,7 +85,15 @@ export const nav = {
         <div class="lg:w-[85%] w-full mx-auto rich-text [&_p,&_ul]:max-w-[85%]">
           <h2>How to submit a talk</h2>
 
-          <p>Our CFP process also encompasses proposal submissions to the Specialist Tracks, so you can submit your talk to the main conference and to Specialist Tracks with one click.</p>
+          <p>Before you submit your talk, here are a few quick things to double check:</p>
+          
+          <ul>
+            <li>Your proposal MUST adhere to the conference <TypographyLink href="/conduct">Code of Conduct</TypographyLink>.</li>
+            <li>Consider the <TypographyLink href="/cfp/anonynity-guidelines">anonymity guidelines</TypographyLink> and how they apply to your proposal.</li>
+            <li>If its your first time at PyCon AU, welcome! Please take a moment to learn about our <TypographyLink href="/about/community-and-culture">community and culture</TypographyLink> as there are a few things that we don't do here.</li>
+          </ul>
+
+          <p>Our CFP process also encompasses proposal submissions to the <TypographyLink href="/cfp/specialist-tracks">Specialist Tracks</TypographyLink>, so you can submit your talk to the main conference and to Specialist Tracks with one click.</p>
 
           <p>Due to a quirk in our how our software works, you will always submit your talk to one track (or the main conference) to start with. Further down the submission form, you can select additional tracks that you would like your talk to be submitted to, and you can select more than one!</p>
 
