@@ -222,6 +222,10 @@ footer ul li a {
   @apply list-disc list-outside ml-4 pl-2 pb-4 font-sans text-base font-normal tracking-[0.01em] leading-normal;
 }
 
+.rich-text ol li {
+  @apply list-decimal list-outside ml-4 pl-2 pb-4 font-sans text-base font-normal tracking-[0.01em] leading-normal;
+}
+
 .rich-text h1 + p,
 .rich-text h2 + p,
 .rich-text h3 + p,
@@ -273,7 +277,8 @@ footer ul li a {
     text-base 
     font-sans
     font-semibold 
-    text-stone
+    text-stone!
+    no-underline
     flex
     gap-6
     items-center
@@ -348,13 +353,13 @@ footer ul li a {
   @apply bg-lime text-charcoal after:bg-[url('/images/arrow-medium.svg')];
 }
 .btn-arrow--lemon {
-  @apply bg-lemon text-charcoal after:bg-[url('/images/arrow-medium--lemon.svg')];
+  @apply bg-lemon text-charcoal! after:bg-[url('/images/arrow-medium--lemon.svg')];
 }
 .btn-arrow--lavender {
-  @apply bg-lavender text-charcoal after:bg-[url('/images/arrow-medium.svg')];
+  @apply bg-lavender text-charcoal! after:bg-[url('/images/arrow-medium.svg')];
 }
 .btn-arrow--coral {
-  @apply bg-coral text-charcoal after:bg-[url('/images/arrow-medium.svg')];
+  @apply bg-coral text-charcoal! after:bg-[url('/images/arrow-medium.svg')];
 }
 
 .breadcrumb a,
