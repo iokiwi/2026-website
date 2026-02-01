@@ -20,8 +20,10 @@ export const workshops: Workshop[] = [
   },
   {
     location: "Canberra",
-    date: "TBA Early March",
-    description: "With the **Canberra Python User Group** hosted at ANU."
+    date: "5 March",
+    time: "6pm - 7:30pm AEDT",
+    description: "With the **Canberra Python User Group** hosted at ANU.",
+    rsvpUrl: "https://www.meetup.com/canberra-python-meetup-group/events/313087616/"
   },
   {
     location: "Melbourne",
