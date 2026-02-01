@@ -1,0 +1,240 @@
+---
+import FAQCategory from "../../components/attend/faq/FAQCategory.astro";
+import FAQEntry from "../../components/attend/faq/FAQEntry.astro";
+import CfpNav from "../../components/cfp/CfpNav.astro";
+import Footer from "../../components/Footer.astro";
+import Crumb from "../../components/header/Crumb.astro";
+import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
+import PageHeader from "../../components/header/PageHeader.astro";
+import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
+import TypographyLink from "../../components/typography/TypographyLink.astro";
+import Base from "../../layouts/Base.astro";
+
+export const nav = {
+  order: 8,
+  title: "FAQs",
+};
+---
+
+<Base title="CFP FAQs">
+  <PageHeader dark={true} starColour="violet">
+    <HeaderBreadcrumbs colour="lemon">
+      <Crumb href="/cfp/">Call for Proposals</Crumb>
+    </HeaderBreadcrumbs>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>FAQs</h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_4.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
+  </PageHeader>
+
+  <section>
+    <div class="header-divider header-divider--lemon"></div>
+
+    <div class="bg-stone pt-20 pb-5">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="flex flex-col-reverse lg:flex-row justify-between items-start gap-14">
+            <div class="flex flex-col gap-10 shrink">
+              <div class="lg:w-[80%] w-full shrink rich-text">
+                <h2>Still have questions?</h2>
+                <p class="">
+                  Writing talks can prompt lots of deep thinking and questions, and we know each question is unique to the story you're trying to tell. You can always reach out to <TypographyLink href="mailto:program@pycon.org.au">program@pycon.org.au</TypographyLink> to ask questions, or attend a <TypographyLink href="/cfp/workshops">CFP Workshop</TypographyLink> to get some talk writing advice.
+                </p>
+                <p class="">
+                  To help save you some time, we've also compiled a list of the most commonly asked questions we get asked.
+                </p>
+              </div>
+            </div>
+
+            <CfpNav />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="bg-stone py-10">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <FAQCategory title="Proposal Topics">
+            <FAQEntry title="Can my talk include other programming languages?">
+              <p>
+                Yes! Lessons from other ecosystems and technologies can be valuable. Just make sure your proposal addresses how the talk is relevant to people who use Python.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="Do you accept 'soft skills' talks too?">
+              <p>
+                We'd love talks on talks that don't directly include 'code' in the talk. Be sure your proposal addresses how the talk will be relevant to people who use Python.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="I've given this talk before, can I submit it to PyCon AU?">
+              <p>
+                Yes! If your talk has been presented at other events but not at PyCon AU, we welcome hearing the new improved version at PyCon AU. Consider what improvements or changes might be appropriate to a PyCon AU audience.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="I have a paper to publish but don't want to talk - can I still submit?">
+              <p>
+                We love your enthusiasm, however only talks or posters sessions will have the option for peer reviewed publication at PyCon AU 2026.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="Can I submit a proposal on a project or announcement that is still embargoed?">
+              <p>
+                Yes! Be mindful that the CFP review process brings in a broad audience of different perspectives, and your proposal is not considered to be confidential during review.
+                </p>
+                <p>
+                  If your topic is embargoed, please consider:
+                </p>
+                <ul>
+                  <li>Your title, abstract, description and notes will still be shared with reviewers.</li>
+                  <li>Embargoed talks can be withheld from publication in the program schedule until a date/time that you specify.</li>
+                  <li>If your talk is embargoed it will not impact the review process for how your talk is considered.</li>
+                  <li>If your talk is embargoed, the embargo date may impact the final selection into the conference program. This is because we are enthusiastic to promote our program ahead of the August conference. We will discuss with you before selection if this consideration applies.</li>
+                </ul>
+                <p>
+                  Please email us at <TypographyLink href="mailto:program@pycon.org.au">program@pycon.org.au</TypographyLink> before the CFP closes to discuss your specific scenario.
+                </p>
+                
+              </p>
+            </FAQEntry>
+          </FAQCategory>
+
+          <FAQCategory title="Speaker benefits">
+            <FAQEntry title="Do speakers get a free ticket to attend?" label="Updated in 2026">
+              <p>
+                Yes<sup>^</sup>! Speakers who present a talk and promote their session before the conference will receive a full three day ticket at the Professional level. This includes a conference t-shirt and full catering on Thursday, Friday and Saturday.
+              </p>
+              <p>
+                Speakers who wish to speak but do not want to promote their session before the conference may be offered a 1 day ticket (at the Professional level) instead. Promoting your talk helps us sell tickets and ensure your talk is presented to a room full of enthusiastic attendees.
+              </p>
+              <p>
+                Promotion can be as simple as sharing your talk on social media or inviting your friends and colleagues to the conference. We'll provide you with graphics and other material to help you do so.
+              </p>
+              
+              <p>
+                If this ticket policy impacts your submission, please reach out to <TypographyLink href="mailto:program@pycon.org.au">program@pycon.org.au</TypographyLink> so we can discuss your specific situation.
+              </p>
+              
+            </FAQEntry>
+            <FAQEntry title="Do posters sessions also get a free ticket to attend?">
+              <p>
+                Unfortunately, no. Posters sessions do not include a free ticket by themselves, however we expect most posters will be presented by speakers or delegates already planning to attend.
+              </p>
+              <p>
+                If these ticket policies impact your submission, please reach out to <TypographyLink href="mailto:program@pycon.org.au">program@pycon.org.au</TypographyLink> so we can discuss your specific situation.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="What expectations do you have of speakers?"  label="Updated in 2026">
+              <p>
+                Every year, speakers blow us away with their enthusiasm, expertise and excitement on stage. We've got just a couple of asks ahead of time that will help us, help you, to give an awesome talk.
+                <ul>
+                  <li>If your talk is selected, help us to promote your talk ahead of the conference via your preferred social media and invite your network. We'll produce graphics and other material to help you do so.</li>
+                  <li>Join us for the full conference, even if your talk is on the last day. We want you to experience everything PyCon AU has to offer!</li>
+                  <li>Come prepared for your talk, and test your AV early. We'll have details in a speaker briefing closer to the conference.</li>
+                  <li>Ask questions early and often. At PyCon AU we go out of our way to make sure speakers have an awesome experience, but sometimes hard to accomodate your requests the day of your talk.</li>
+                </ul>
+              </p>
+
+              <p>
+                PyCon AU does not pay speakers to attend and speak at the conference. If travelling to Brisbane is cost prohibitive for you, please consider also applying for <TypographyLink href="/attend/financial-assistance">financial assistance</TypographyLink>.
+              </p>
+              
+            </FAQEntry>
+          </FAQCategory>
+
+          <FAQCategory title="Mentors">
+            <FAQEntry title="Does receiving mentoring increase my chances of being accepted?">
+              <p>
+                Mentors can help you improve the quality of your proposal so that it can be better evaluated during review, however mentors cannot influence the review process after CFP closes.
+              </p>
+              <p>
+                Some of the most popular talks at PyCon AU started as an early draft and then received mentoring during CFP - so we know it definitely helps!
+              </p>
+            </FAQEntry>
+            <FAQEntry title="Can mentors help me brainstorm ideas?">
+              <p>
+                Generally speaking no. Thats what coffee and lunch with your friends and colleagues is for =D. Mentors help most when you have a draft proposal or a talk outline you're looking to improve.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="Can I get feedback from multiple mentors?">
+              <p>
+                Our mentors are volunteers and have multiple mentees to help during CFP. To be fair to everyone our mentors will generally give one or two rounds of feedback to help you along with the process.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="What type of feedback will a mentor give me?">
+              <p>
+                Mentors can help you improve the clarity, structure, and impact of your proposal. They can help you identify gaps in your content, or areas that might need more detail. They can also help you ensure your proposal aligns with the CFP guidelines.
+              </p>
+            </FAQEntry>
+          </FAQCategory>
+
+          <FAQCategory title="Submitting via Pretalx">
+            <FAQEntry title="How do I submit to multiple specialist tracks?">
+              <p>
+                Proposals in Pretalx always start by selecting a primary track. Further down, you'll see an option to select additional tracks to submit your proposal to. Please only select the tracks that are relevant to your talk.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="How do I submit both a talk and a related poster session?">
+              <p>
+                Talks and posters are different session types. Please submit two proposals in Pretalx. In your posters proposal, please add the notes that you have also submitted a related talk proposal.
+              </p>
+              <p>
+                Note that posters and talks are reviewed separately using different criteria. Your talk proposal will not influence your poster proposal, and visa versa.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="Can I edit my proposal after it's submitted?">
+              <p>
+                Yes! Proposals can be edited right up until the CFP deadline. Just log back into Pretalx, and make any changes you need. Submit (and edit) early and often!
+              </p>
+            </FAQEntry>
+            <FAQEntry title="How do I submit a proposal that's on an embargoed announcement?">
+              <p>
+                If your topic is embargoed, please:
+                <ul>
+                  <li>Take note of the <a href="/cfp/anonymity-guidelines">anonymity guidelines</a> when writing your proposal.</li>
+                  <li>Share with us the details of the embargo in the notes field - this field is shared only with reviewers.</li>
+                </ul>
+                Or email us at <TypographyLink href="mailto:program@pycon.org.au">program@pycon.org.au</TypographyLink> before the CFP closes to discuss your specific scenario.
+              </p>
+            </FAQEntry>
+            <FAQEntry title="How do I apply for financial assistance to attend and speak?">
+              <p>
+                Our financial assistance program is available to speakers to support your attendance at the conference. Please submit a separate application via our <TypographyLink href="/attend/financial-assistance">financial assistance page</TypographyLink>.
+              </p>
+              <p>
+                Applying for financial assistance does not impact the review of your talk proposal. However the conference has a limited budget, so we may not be able to accept all applicants who apply.
+              </p>
+            </FAQEntry>
+          </FAQCategory>
+
+          <p class="text-intro font-medium text-charcoal fadeInUp pt-10">
+            Still have questions? Feel free to reach out to us via <TypographyLink href="mailto:program@pycon.org.au">program@pycon.org.au</TypographyLink>.
+          </p>
+        </div>
+
+        <div class="flex justify-center group pt-20 fadeInUp">
+          <img
+            src="/images/snake.svg"
+            alt=""
+            class="group-hover:rotate-y-180 transition-all duration-300"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script src="/src/scripts/animations.js"></script>
+</Base>
