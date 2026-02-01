@@ -1,0 +1,193 @@
+---
+import { getCollection } from "astro:content";
+import Callout from "../../components/cfp/Callout.astro";
+import CfpNav from "../../components/cfp/CfpNav.astro";
+import Comparison from "../../components/cfp/Comparison.astro";
+import ComparisonCard from "../../components/cfp/ComparisonCard.astro";
+import SpecialistTrack from "../../components/cfp/SpecialistTrack.astro";
+import Footer from "../../components/Footer.astro";
+import Crumb from "../../components/header/Crumb.astro";
+import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
+import PageHeader from "../../components/header/PageHeader.astro";
+import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
+import Base from "../../layouts/Base.astro";
+import TypographyLink from "../../components/typography/TypographyLink.astro";
+
+const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
+
+export const nav = {
+  order: 1,
+  title: "Proposal Guidelines",
+  image: "/images/cfp/accommodation/speaking_1.jpg",
+};
+---
+
+<Base title="Specialist Tracks">
+  <PageHeader dark={true} starColour="violet">
+    <HeaderBreadcrumbs colour="lemon">
+      <Crumb href="/cfp/">Call for Proposals</Crumb>
+    </HeaderBreadcrumbs>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>Proposal Guidelines</h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_2.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
+  </PageHeader>
+
+  <section>
+    <div class="header-divider header-divider--lemon"></div>
+
+    <div class="bg-stone pt-20 pb-5">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div class="flex flex-col-reverse lg:flex-row justify-between items-start gap-14">
+            <div class="flex flex-col gap-10 shrink"> 
+              <div class="lg:w-[80%] w-full shrink rich-text">
+                <h2>Who should submit?</h2>
+
+                <p>At PyCon AU, we welcome submissions from everybody. That means we're looking for speakers:</p>
+
+              </div>
+
+              <div>
+                <ul class="space-y-4">
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>Who have never given a conference talk before,</span></li>
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>Who are new to Python,</span></li>
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>Who have built interesting things in Python,</span></li>
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>Who have broken interesting things with Python,</span></li>
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>Who have helped build Python, and</span></li>
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>Who have expertise to share with our community from fields outside of Python (and outside of technology),</span></li>
+                  <li class="flex gap-4"><img src="/images/tick-coral.svg" alt="" class="w-6 h-6 mt-1 shrink-0"><span>And, of course, returning experienced speakers and Python practitioners!</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <CfpNav />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+
+    <div class="bg-stone py-10">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto rich-text [&_p,&_ul]:max-w-[85%]">
+          <h2>How to submit a talk</h2>
+
+          <p>Before you submit your talk, here are a few quick things to double check:</p>
+          
+          <ul>
+            <li>Your proposal MUST adhere to the conference <TypographyLink href="/conduct">Code of Conduct</TypographyLink>.</li>
+            <li>Consider the <TypographyLink href="/cfp/anonynity-guidelines">anonymity guidelines</TypographyLink> and how they apply to your proposal.</li>
+            <li>If its your first time at PyCon AU, welcome! Please take a moment to learn about our <TypographyLink href="/about/community-and-culture">community and culture</TypographyLink> as there are a few things that we don't do here.</li>
+          </ul>
+
+          <p>Our CFP process also encompasses proposal submissions to the <TypographyLink href="/cfp/specialist-tracks">Specialist Tracks</TypographyLink>, so you can submit your talk to the main conference and to Specialist Tracks with one click.</p>
+
+          <p>Due to a quirk in our how our software works, you will always submit your talk to one track (or the main conference) to start with. Later on in the submission form, you can select additional tracks that you would like your talk to be submitted to, and you can select more than one!</p>
+
+          <Callout colour="lemon" class="lg:w-[95%] -ml-10" >
+            <p class="max-w-full!">
+              <strong>Important:</strong>Please only select the tracks you specifically want to submit to. All talks are considered for the main conference if not selected for a specialist track. Selecting all tracks for an unrelated talk does not increase your chance of being selected, and may result in being reviewed negatively for being unrelated to the track topic.
+            </p>
+          </Callout>
+
+          <p>You do not have to have written your talk before submitting to PyCon AU. Your proposal should contain enough detail so that reviewers can understand what you intend to speak about. Take some time to read our sample proposal below to understand what kind of information to include in your abstract, description and notes.</p>
+
+          <p>If you have questions about the CFP process, you can reach us at <a href="mailto:program@pycon.org.au">program@pycon.org.au</a>. Please email early, as there is often a rush of questions in the final days before CFP closes.</p>
+      
+          <h2>What makes a good proposal?</h2>
+          <p>
+            In this section we'll share a sample talk idea, and two different ways it could be proposed as a talk. Take note below of the information our reviewers are looking for, and how to improve the sample proposal.
+          </p>
+          
+          <Comparison>
+            <ComparisonCard title="Sample A">
+              <p>
+                <strong>Title:</strong> Networks in python
+              </p>
+
+              <p>
+                <strong>Abstract:</strong><br/>
+            
+                This talk will discuss networks and python and the ABC package
+                as used at XYZ company. As an expert in networks I will tell you all about them.
+              </p>
+
+            </ComparisonCard>
+            <ComparisonCard title="Sample B">
+              <p>
+                <strong>Title:</strong> Networks in python
+              </p>
+
+              <p>
+                <strong>Abstract:</strong><br/>
+            
+                Computer networking is treated as a specialist topic but if you don’t
+                understand it then your apps will run slowly, and won't be reliable.
+                A solid understanding of networking and common failure points is a key component
+                of shipping a reliable, usable app that your customers don’t hate. 
+              </p>
+
+              <p>
+                <strong>Description:</strong> (optional)<br/>
+                This talk is great for non specialists looking to know enough about networking to write reliable, network connected apps. 
+Learning from my experience doing remote output monitoring as part of a leading green energy system. This talk will cover the basics of ABC package, and how it simplifies dealing with slow or unreliable networks (like the internet) as well as some networking traps and some mistakes I have made in the past which you can learn from.
+              </p>
+              <p>
+                <strong>Notes:</strong> (optional - only visible to reviewers)<br/>
+                This talk will include a short mention of the company in question since it is a case study of using Python in the industry.
+              </p>
+            </ComparisonCard>
+          </Comparison>
+
+          <h4>Things to consider:</h4>
+          <p>
+            <ul class="[&_li]:font-light!">
+              <li>Short abstracts make it difficult for reviewers to assess what you are going to cover.</li>
+              <li>The longer abstract outlines why the talk is relevant to the audience, and includes some of the topics and skills that will be covered.</li>
+              <li>Explaining the target audience helps both reviewers and attendees understand if the talk is focused on a generalist audience, a niche specialist topic, and to gauge the technical depth covered. Note that we actively encourage a range of both beginner and advanced topics at PyCon AU.</li>
+            </ul>
+          </p>
+          
+          <h4>Further improvements:</h4>
+          
+          <p>
+            <ul class="[&_li]:font-light!">
+              <li class="font-light">You can add headings to your description if you think it helps present your talk in a structured way. Pretalx supports markdown style headings and formatting.</li>
+              <li>You might consider an approximate timing breakdown of your talk in the notes to reviewers field. This isn't published, but can show reviewers how you're approaching the topic, and that you've thought about the presentation.</li>
+            </ul>
+          </p>
+
+          <h2>Sponsored talks &amp; product placement</h2>
+          <p>
+            Attendees come to PyCon AU to learn about interesting applications of Python and develop real world skills related to their hobbies or professional endeavours. We welcome talks that mention commercial products or platforms that are relevant to people who use Python.
+          </p>
+
+          <p>
+            However, attendees do not expect to sit through product demos and sales pitches. Talks submitted to the CFP will be reviewed with positive intent, but talks submitted by companies (e.g. sales, marketing and product evangelists) should take into consideration that PyCon AU is a practitioner led, community first conference. Product demonstrations and sales pitches are typically reviewed negatively and are unlikely to be accepted.
+          </p>
+          <p>
+            PyCon AU reserves a limited number of talks in the program for <a href="/sponsor">sponsors</a>. To arrange a sponsored talk, please reach out to <a href="mailto:sponsor@pycon.org.au">sponsor@pycon.org.au</a>. Spaces in the schedule are limited, so purchasing your sponsored talk early is recommended.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script src="/src/scripts/animations.js"></script>
+</Base>

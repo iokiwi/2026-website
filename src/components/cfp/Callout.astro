@@ -1,0 +1,29 @@
+---
+interface Props {
+  title?: string;
+  icon?: string;
+  colour?: "emerald" | "lemon" | "lavender" | "violet";
+  class?: string;
+}
+
+const { title, icon, colour = "emerald", class: className = "" } = Astro.props;
+
+const borderColours = {
+  emerald: "border-emerald",
+  lemon: "border-lemon",
+  lavender: "border-lavender",
+  violet: "border-violet",
+};
+---
+
+<div class={`bg-white rounded-3xl p-8 border-l-8 max-w-fit ${borderColours[colour]} ${className}`}>
+  <div class={icon ? "flex items-start gap-4" : ""}>
+    {icon && <img src={icon} alt="" class="w-8 h-auto shrink-0 pt-0!" />}
+    <div>
+      {title && <span class="text-xl font-semibold mb-2 leading-5">{title}</span>}
+      <div class="max-w-fit">
+      <slot />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+---
+interface Props {
+  location: string;
+  date: string;
+  description: string;
+  time?: string;
+  rsvpUrl?: string;
+}
+
+const { location, date, description, time, rsvpUrl } = Astro.props;
+
+const processMarkdown = (text: string) =>
+  text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+---
+
+<div class="bg-white rounded-3xl p-6 flex flex-col justify-between h-full hover:bg-white/95">
+  <div>
+    <div class="flex justify-between items-start mb-4">
+      <h4 class="text-lg font-bold">{location}</h4>
+      <span class="text-base text-right">{date}</span>
+    </div>
+    <p class="text-sm! rich-text" set:html={processMarkdown(description)} />
+  </div>
+  <div class="flex justify-between items-center mt-4">
+    <span class="text-sm text-charcoal">{time}</span>
+    {rsvpUrl ? (
+      <a href={rsvpUrl} target="_blank" rel="noopener noreferrer" class="text-violet font-semibold hover:underline flex items-center gap-2 group">
+        RSVP
+        <img
+          src="/images/arrow-small--violet.svg"
+          alt=""
+          class="h-3 group-hover:translate-x-1 transition-all duration-300"
+        />
+      </a>
+    ) : (
+      <span class="text-charcoal font-semibold">Details soon</span>
+    )}
+  </div>
+</div>

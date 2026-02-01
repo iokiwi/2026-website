@@ -1,0 +1,100 @@
+---
+import { getCollection } from "astro:content";
+import CfpNav from "../../components/cfp/CfpNav.astro";
+import SpecialistTrack from "../../components/cfp/SpecialistTrack.astro";
+import Footer from "../../components/Footer.astro";
+import Crumb from "../../components/header/Crumb.astro";
+import HeaderBreadcrumbs from "../../components/header/HeaderBreadcrumbs.astro";
+import PageHeader from "../../components/header/PageHeader.astro";
+import PageHeaderTitle from "../../components/header/PageHeaderTitle.astro";
+import Base from "../../layouts/Base.astro";
+import Callout from "../../components/cfp/Callout.astro";
+
+const tracks = (await getCollection("specialist-tracks")).sort((a, b) => a.id.localeCompare(b.id));
+
+export const nav = {
+  order: 2,
+  title: "Specialist Tracks",
+  image: "/images/cfp/accommodation/speaking_3.jpg",
+};
+---
+
+<Base title="Specialist Tracks">
+  <PageHeader dark={true} starColour="violet">
+    <HeaderBreadcrumbs colour="lemon">
+      <Crumb href="/cfp/">Call for Proposals</Crumb>
+    </HeaderBreadcrumbs>
+    <div class="flex flex-col lg:flex-row justify-between items-center relative pt-10">
+      <PageHeaderTitle textColour="lemon">
+        <h1>Specialist Tracks</h1>
+      </PageHeaderTitle>
+      <div class="lg:w-1/2 w-full fadeInUp">
+        <div class="group flex justify-end relative">
+          <img
+            src="/images/cfp/speaking_3.jpg"
+            alt=""
+            class="lg:pb-0 pb-14 rounded-4xl max-h-96"
+          />
+        </div>
+      </div>
+    </div>
+  </PageHeader>
+
+  <section>
+    <div class="header-divider header-divider--lemon"></div>
+
+    <div class="bg-stone py-20">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          <div
+            class="flex flex-col lg:flex-row justify-between items-start gap-14"
+          >
+            <div class="lg:w-[80%] w-full rich-text">
+              <h2>About Specialist Tracks</h2>
+              <p>
+                Specialist tracks are curated sessions focusing on specific topics within the Python ecosystem. Each track is organised by community members with deep expertise in their area.
+              </p>
+              <p>
+                In 2026 we're excited to expand the number of specialist tracks on offer at PyCon AU. In addition to our returning friends, we have 4 new specialist tracks looking for talks!
+              </p>
+
+              <Callout colour="emerald" class="mt-10 -ml-10 font-light text-base">
+                <strong>Specialist Tracks need your talks!</strong>
+                <br />
+                All talks submitted to specialist tracks will be reviewed and considered equally for the main conference. If a track does not receive sufficient proposals, your talk will still be considered for PyCon AU.
+            </div>
+
+            <CfpNav />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="bg-stone pb-20">
+      <div class="container">
+        <div class="lg:w-[85%] w-full mx-auto">
+          {
+            tracks.map(async (track) => {
+              const { Content } = await track.render();
+              return (
+                <SpecialistTrack
+                  title={track.data.title}
+                  shortDescription={track.data.shortDescription}
+                  organisers={track.data.organisers}
+                >
+                  <Content />
+                </SpecialistTrack>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script src="/src/scripts/animations.js"></script>
+</Base>

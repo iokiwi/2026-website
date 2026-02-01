@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  icon?: string;
+  class?: string;
+}
+
+const { title, icon, class: className = "" } = Astro.props;
+---
+
+<div class={`lg:w-1/2 w-full space-y-10 bg-white p-10 fadeInUp ${className}`}>
+  <div class="flex items-center gap-3">
+    {icon && <img src={icon} alt="" class="w-8 h-8 shrink-0 pt-0!" />}
+    <h3 class="text-3xl" style="margin-top:0;">{title}</h3>
+  </div>
+  <slot />
+</div>

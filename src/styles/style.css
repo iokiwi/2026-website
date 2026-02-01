@@ -622,7 +622,7 @@ ul.sub-menu {
 }
 
 .side-nav .active-page {
-  @apply relative before:content-[''] before:absolute before:-left-[calc(40px+9px)] before:top-1 before:w-[18px] before:h-[18px] before:bg-lavender before:rounded-full;
+  @apply relative before:content-[''] before:absolute before:-left-[calc(30px+9px)] before:top-1 before:w-[18px] before:h-[18px] before:bg-lavender before:rounded-full;
 }
 
 /* Marquee styles */
