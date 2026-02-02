@@ -16,7 +16,7 @@ organisers:
     social: {
         "LinkedIn": "https://www.linkedin.com/in/amanda-hogan-70b65652/"
     }
-  - name: Ali Wong
+  - name: Alison Wong
     title: "Senior Lecturer "
     pronouns: "She/Her"
     photo: /images/specialist-tracks/ali-wong.jpg
